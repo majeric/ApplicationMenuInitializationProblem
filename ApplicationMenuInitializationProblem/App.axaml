@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:ApplicationMenuInitializationProblem"
+             xmlns:vm="using:ApplicationMenuInitializationProblem.ViewModels"
+             x:Class="ApplicationMenuInitializationProblem.App"
+             Name="TextEdit">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:AppViewModel />
+	</Design.DataContext>
+	<NativeMenu.Menu>
+		<NativeMenu>
+			<NativeMenuItem Header="About AvaloniaEdit" />
+			<NativeMenuItemSeparator />
+			<NativeMenuItem Header="Preferences..." Gesture="Meta+,"  Command="{Binding PreferencesApplicationCommand}" />
+			<NativeMenuItemSeparator />
+			<NativeMenuItem Header="Hide AvaloniaEdit" Gesture="Meta+H" />
+			<NativeMenuItem Header="Hide Others" Gesture="Ctrl+Meta+H" />
+			<NativeMenuItem Header="Show All" />
+			<NativeMenuItemSeparator />
+			<NativeMenuItem Header="Quit" Gesture="Meta+Q" IsEnabled="True" Command="{Binding QuitApplicationCommand}" />
+		</NativeMenu>
+	</NativeMenu.Menu>
+	<Application.DataTemplates>
+		<local:ViewLocator />
+	</Application.DataTemplates>
+	<Application.Styles>
+		<FluentTheme Mode="Dark" />
+	</Application.Styles>
+</Application>

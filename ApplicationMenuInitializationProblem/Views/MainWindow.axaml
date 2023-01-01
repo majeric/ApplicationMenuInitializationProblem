@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ApplicationMenuInitializationProblem.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ApplicationMenuInitializationProblem.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ApplicationMenuInitializationProblem">
+	<NativeMenu.Menu>
+	<NativeMenu>
+		<NativeMenuItem Header="File">
+			<NativeMenuItem.Menu>
+				<NativeMenu>
+					<NativeMenuItem Header="New" Gesture="Meta+N" />
+					<NativeMenuItem Header="Open..." Gesture="Meta+O" />
+					<NativeMenuItem Header="Open Recent"/>
+					<NativeMenuItemSeparator />
+					<NativeMenuItem Header="Close" Gesture="Meta+W" />
+					<NativeMenuItem Header="Save" Gesture="Meta+S" />
+					<NativeMenuItem Header="Save As..." Gesture="Meta+Shift+Q" />
+					<NativeMenuItemSeparator />
+					<NativeMenuItem Header="Page Setup" Gesture="Meta+Shift+P" />
+					<NativeMenuItem Header="Print..." Gesture="Meta+P" />
+				</NativeMenu>
+			</NativeMenuItem.Menu>
+		</NativeMenuItem>
+		<NativeMenuItem Header="Edit">
+			<NativeMenuItem.Menu>
+				<NativeMenu>
+					<NativeMenuItem Header="Undo" Gesture="Meta+Z" />
+					<NativeMenuItem Header="Redo" Gesture="Meta+Shift+Z" />
+					<NativeMenuItemSeparator />
+					<NativeMenuItem Header="Cut" Gesture="Meta+X" />
+					<NativeMenuItem Header="Copy" Gesture="Meta+C" />
+					<NativeMenuItem Header="Paste" Gesture="Meta+V" />
+					<NativeMenuItemSeparator />
+					<NativeMenuItem Header="Select All" Gesture="Meta+A" />
+					<NativeMenuItem Header="Select None" Gesture="Meta+Shift+A" />
+				</NativeMenu>
+			</NativeMenuItem.Menu>
+		</NativeMenuItem>
+	</NativeMenu>
+	</NativeMenu.Menu>
+	<Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+</Window>
